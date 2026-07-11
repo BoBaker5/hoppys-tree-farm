@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Deploy/host artifacts
+.vercel
+.netlify
+
+# Editors
+.vscode/
+.idea/
+
+# Original photos — the optimized images/ folder is what ships
+Photos/
+photos/
