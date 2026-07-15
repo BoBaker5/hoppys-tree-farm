@@ -61,14 +61,6 @@ h2.sec-title{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:18px;letter-spacin
 .btn-ghost-dark:hover{background:var(--evergreen);color:#fff}
 :focus-visible{outline:3px solid var(--ice);outline-offset:2px}
 
-/* ---------- chapter banners (full-width photo section headers) ---------- */
-.has-chapter{padding-top:0}
-.chapter{position:relative;display:flex;align-items:flex-end;min-height:250px;padding:110px 0 62px;margin-bottom:60px;background:linear-gradient(140deg,var(--evergreen-deep),var(--evergreen-soft))}
-.chapter .container{width:100%}
-.chapter .tag{color:var(--ice-bright)}
-.chapter .sec-title{color:#fff;margin-bottom:0}
-.chapter::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:40px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C150,40 350,0 600,16 C850,33 1050,4 1200,22 L1200,40 L0,40 Z' fill='%23f7faf7'/%3E%3C/svg%3E") bottom center/1200px 40px repeat-x}
-.chapter-mist::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C150,40 350,0 600,16 C850,33 1050,4 1200,22 L1200,40 L0,40 Z' fill='%23eef4ef'/%3E%3C/svg%3E")}
 /* ---------- hero scroll cue ---------- */
 .scroll-cue{position:absolute;left:50%;bottom:26px;margin-left:-22px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#fff;opacity:.85;animation:cue-bob 2.4s ease-in-out infinite}
 .scroll-cue:hover{opacity:1}
@@ -244,8 +236,6 @@ footer a:hover{color:#fff;text-decoration:underline}
 }
 @media (max-width:720px){
   section{padding:64px 0}
-  .has-chapter{padding-top:0}
-  .chapter{min-height:190px;padding:86px 0 48px;margin-bottom:44px}
   .scroll-cue{display:none}
   .nav-brand span{display:none}
   .hero{min-height:86vh;padding:90px 0}
@@ -322,14 +312,10 @@ footer a:hover{color:#fff;text-decoration:underline}
 </div>
 
 <!-- =============== OUR STORY =============== -->
-<section id="farm" class="has-chapter">
-  <header class="chapter">
-    <div class="container">
-      <span class="tag">Our story</span>
-      <h2 class="sec-title">Hoppy's Family farm, keeping Hoppy's memory alive</h2>
-    </div>
-  </header>
+<section id="farm">
   <div class="container">
+    <span class="tag">Our story</span>
+    <h2 class="sec-title">Hoppy's Family farm, keeping Hoppy's memory alive</h2>
     <div class="story-grid">
       <div class="story-text">
         <p>Once upon a December long ago, Christmas at our house meant rosy cheeks, sticky mittens, and a row of trees sold for a dollar a foot (six dollars was the maximum). Every weekend from Thanksgiving to Christmas, we bundled up like little elves, twisting garland, tying wreaths, and earning our holiday money under the cheerful watch of our dad, <strong>Bob "Hoppy" Hauptmann</strong>, whose laugh could jingle louder than any sleigh bell. As the years rolled on, we grew up, and the old farm quietly waited, like a snowcovered storybook waiting to be opened again.</p>
@@ -361,14 +347,10 @@ footer a:hover{color:#fff;text-decoration:underline}
 </section>
 
 <!-- =============== OUR TREES =============== -->
-<section id="trees" class="has-chapter">
-  <header class="chapter chapter-mist">
-    <div class="container">
-      <span class="tag">What We Grow</span>
-      <h2 class="sec-title">Find your perfect fir or spruce.</h2>
-    </div>
-  </header>
+<section id="trees">
   <div class="container">
+    <span class="tag">What We Grow</span>
+    <h2 class="sec-title">Find your perfect fir or spruce.</h2>
     <div class="tree-grid">
       <article class="tcard reveal reveal-left">
         <h3>Fraser Fir</h3>
@@ -396,14 +378,10 @@ footer a:hover{color:#fff;text-decoration:underline}
 </section>
 
 <!-- =============== HOW IT WORKS =============== -->
-<section id="how" class="has-chapter">
-  <header class="chapter">
-    <div class="container">
-      <span class="tag">Your Farm Visit Experience</span>
-      <h2 class="sec-title">How a visit goes.</h2>
-    </div>
-  </header>
+<section id="how">
   <div class="container">
+    <span class="tag">Your Farm Visit Experience</span>
+    <h2 class="sec-title">How a visit goes.</h2>
     <p class="sec-intro" style="margin-bottom:0">No appointment, no rush. Come when the light's good, grab a saw, cut down your favorite and leave with a tree and a story.</p>
   </div>
 </section>
@@ -420,14 +398,10 @@ footer a:hover{color:#fff;text-decoration:underline}
 </div>
 
 <!-- =============== WHAT WE GROW =============== -->
-<section id="grow" class="has-chapter">
-  <header class="chapter">
-    <div class="container">
-      <span class="tag">Want more?</span>
-      <h2 class="sec-title">More than a tree to take home.</h2>
-    </div>
-  </header>
+<section id="grow">
   <div class="container">
+    <span class="tag">Want more?</span>
+    <h2 class="sec-title">More than a tree to take home.</h2>
     <p class="sec-intro">Every tree is grown on our farm, each wreath crafted by hand, maple syrup made right here on the property, local honey from a friendly neighbor, and our shop features handmade crafts and Hoppy's merch curated for your visit.</p>
     <div class="card-grid">
       <article class="pcard reveal">
