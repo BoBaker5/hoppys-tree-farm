@@ -32,24 +32,17 @@ Everything lives in `index.html`:
   `<img src="images/…">` (or the hero's `background` in the CSS). Keep images
   at ~1600px wide max and JPEG quality ~80 so the page stays fast.
 
-## Finishing the contact form (Formspree)
+## The contact form (Formspree)
 
-The contact form is wired to [Formspree](https://formspree.io) but needs a form
-ID. Until you add one, the form politely tells visitors to email
-hoppytreeroh@gmail.com instead — nothing appears broken.
+The contact form is connected to [Formspree](https://formspree.io) (form ID
+`mykrkpyn`) and delivers submissions to hoppytreeroh@gmail.com. Visitors see a
+thank-you message on the page after sending.
 
-1. Sign up free at <https://formspree.io> (use hoppytreeroh@gmail.com so
-   submissions arrive there).
-2. Create a new form and copy its ID — it looks like `xabcdefg`.
-3. In `index.html`, find the comment block that says **⚠️ FORMSPREE SETUP** and
-   replace `YOUR_FORM_ID` in the form's `action` attribute:
-
-   ```html
-   <form ... action="https://formspree.io/f/xabcdefg" method="POST">
-   ```
-
-That's it — messages will now be delivered to your inbox, and visitors see a
-friendly thank-you message after sending.
+- To see past submissions or change settings, log in at formspree.io with
+  hoppytreeroh@gmail.com.
+- The free plan includes 50 messages per month.
+- If you ever create a new form, update the ID in the form's `action`
+  attribute in `index.html` (search for `formspree.io/f/`).
 
 ## Publishing
 
