@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hoppy's Christmas Tree Farm · Cut-Your-Own Trees in North Stonington, CT</title>
 <meta name="description" content="Hoppy's Christmas Tree Farm is a family-run cut-your-own Christmas tree farm at 108 Ryder Rd, North Stonington, CT. Fraser fir, balsam fir, concolor fir & spruce, handmade wreaths, maple syrup, free hayrides and a kids' scavenger hunt. Opening November 27, 2026, weekends 9–4.">
+<!-- Social share preview (update the domain if you move to a custom one) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hoppy's Christmas Tree Farm · North Stonington, CT">
+<meta property="og:description" content="Family-run cut-your-own Christmas trees, handmade wreaths, maple syrup, and hayrides. Opening November 27, 2026 — weekends 9–4.">
+<meta property="og:image" content="https://hoppys-tree-farm.vercel.app/images/hero-hayride.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -55,6 +61,24 @@ h2.sec-title{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:18px;letter-spacin
 .btn-ghost-dark:hover{background:var(--evergreen);color:#fff}
 :focus-visible{outline:3px solid var(--ice);outline-offset:2px}
 
+/* ---------- chapter banners (full-width photo section headers) ---------- */
+.has-chapter{padding-top:0}
+.chapter{position:relative;display:flex;align-items:flex-end;min-height:350px;padding:130px 0 74px;margin-bottom:60px;background-image:linear-gradient(rgba(9,28,17,.42),rgba(9,28,17,.68)),var(--chapter-img);background-size:cover;background-position:center}
+.chapter .container{width:100%}
+.chapter .tag{color:var(--ice-bright)}
+.chapter .sec-title{color:#fff;margin-bottom:0;text-shadow:0 2px 18px rgba(9,28,17,.45)}
+.chapter::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:40px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C150,40 350,0 600,16 C850,33 1050,4 1200,22 L1200,40 L0,40 Z' fill='%23f7faf7'/%3E%3C/svg%3E") bottom center/1200px 40px repeat-x}
+.chapter-mist::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C150,40 350,0 600,16 C850,33 1050,4 1200,22 L1200,40 L0,40 Z' fill='%23eef4ef'/%3E%3C/svg%3E")}
+.chapter-farm{--chapter-img:url("images/seedlings.jpg");background-position:center 62%}
+.chapter-trees{--chapter-img:url("images/trees-snow.jpg");background-position:center 24%}
+.chapter-how{--chapter-img:url("images/hero-hayride.jpg");background-position:center 78%}
+.chapter-grow{--chapter-img:url("images/greens-banner.jpg")}
+
+/* ---------- hero scroll cue ---------- */
+.scroll-cue{position:absolute;left:50%;bottom:26px;margin-left:-22px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#fff;opacity:.85;animation:cue-bob 2.4s ease-in-out infinite}
+.scroll-cue:hover{opacity:1}
+@keyframes cue-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+
 /* ---------- snow canvas ---------- */
 #snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:999}
 
@@ -66,7 +90,7 @@ h2.sec-title{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:18px;letter-spacin
 .nav-brand span{font-family:var(--font-head);font-weight:600;font-size:1.06rem;color:var(--evergreen);line-height:1.1}
 .nav-links{display:flex;align-items:center;gap:6px;list-style:none}
 .nav-links a{display:block;padding:9px 13px;white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:500;font-size:.94rem;border-radius:8px;transition:background .15s,color .15s}
-.nav-links a:hover{background:#e8f0e9;color:var(--evergreen)}
+.nav-links a:hover,.nav-links a.active{background:#e8f0e9;color:var(--evergreen)}
 .nav-links .btn{padding:10px 20px;margin-left:8px;font-size:.9rem}
 .nav-links .btn:hover{background:var(--red-dark);color:#fff}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:10px}
@@ -194,8 +218,19 @@ footer a:hover{color:#fff;text-decoration:underline}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:26px;text-align:center;font-size:.87rem;color:#8fa596}
 
 /* ---------- reveal on scroll ---------- */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.reveal-left{transform:translateX(-40px)}
+.reveal.reveal-right{transform:translateX(40px)}
+.reveal.d1{transition-delay:.12s}
+.reveal.d2{transition-delay:.24s}
 .reveal.in{opacity:1;transform:none}
+
+/* ---------- photo hover life ---------- */
+.pcard img{transition:transform .6s ease}
+.pcard:hover img{transform:scale(1.05)}
+.story-photos figure{overflow:hidden;border-radius:var(--radius)}
+.story-photos img{transition:transform .6s ease}
+.story-photos figure:hover img{transform:scale(1.04)}
 
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
@@ -214,6 +249,9 @@ footer a:hover{color:#fff;text-decoration:underline}
 }
 @media (max-width:720px){
   section{padding:64px 0}
+  .has-chapter{padding-top:0}
+  .chapter{min-height:250px;padding:96px 0 56px;margin-bottom:44px}
+  .scroll-cue{display:none}
   .nav-brand span{display:none}
   .hero{min-height:86vh;padding:90px 0}
   .card-grid{grid-template-columns:1fr}
@@ -274,6 +312,9 @@ footer a:hover{color:#fff;text-decoration:underline}
       <a class="btn btn-ghost" href="#trees">See what we grow</a>
     </div>
   </div>
+  <a class="scroll-cue" href="#farm" aria-label="Scroll down to our story">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
 </section>
 
 <!-- =============== INFO STRIP =============== -->
@@ -282,14 +323,19 @@ footer a:hover{color:#fff;text-decoration:underline}
     <li>Opening November 27, 2026 · weekends 9–4</li>
     <li>Cut-your-own trees</li>
     <li>Hay Wagon Rides and Scavenger Hunt for the kids</li>
+    <li id="countdown" hidden></li>
   </ul>
 </div>
 
 <!-- =============== OUR STORY =============== -->
-<section id="farm">
+<section id="farm" class="has-chapter">
+  <header class="chapter chapter-farm">
+    <div class="container">
+      <span class="tag">Our story</span>
+      <h2 class="sec-title">Hoppy's Family farm, keeping Hoppy's memory alive</h2>
+    </div>
+  </header>
   <div class="container">
-    <span class="tag">Our story</span>
-    <h2 class="sec-title">Hoppy's Family farm, keeping Hoppy's memory alive</h2>
     <div class="story-grid">
       <div class="story-text">
         <p>Once upon a December long ago, Christmas at our house meant rosy cheeks, sticky mittens, and a row of trees sold for a dollar a foot (six dollars was the maximum). Every weekend from Thanksgiving to Christmas, we bundled up like little elves, twisting garland, tying wreaths, and earning our holiday money under the cheerful watch of our dad, <strong>Bob "Hoppy" Hauptmann</strong>, whose laugh could jingle louder than any sleigh bell. As the years rolled on, we grew up, and the old farm quietly waited, like a snowcovered storybook waiting to be opened again.</p>
@@ -299,15 +345,11 @@ footer a:hover{color:#fff;text-decoration:underline}
         <p>Every wreath we tie, every tree we help cut, every giggle drifting across the snowy rows carries a spark of Hoppy's spirit. His holiday magic lives in every corner of the farm, glowing brighter each year, just the way he would've wanted.</p>
       </div>
       <div class="story-photos">
-        <figure class="wide reveal">
-          <img src="images/seedlings.jpg" alt="Rows of freshly planted evergreen seedlings in dark soil, carrying on the tradition Hoppy started every Mother's Day" loading="lazy" width="800" height="600">
-          <figcaption>New seedlings, tucked into the earth the way Hoppy taught us.</figcaption>
-        </figure>
         <figure class="reveal">
           <img src="images/sugar-shack.jpg" alt="The wood stove inside the sugar shack, firebox glowing, with a steel kettle warming on top" loading="lazy" width="520" height="520">
           <figcaption>Inside the sugar shack.</figcaption>
         </figure>
-        <figure class="reveal">
+        <figure class="reveal d1">
           <img src="images/santa-mailbox.jpg" alt="A vintage metal mailbox stamped 'Santa Claus Letters' tucked into a fresh evergreen wreath with a plaid bow" loading="lazy" width="620" height="620">
           <figcaption>Letters to the North Pole.</figcaption>
         </figure>
@@ -321,27 +363,31 @@ footer a:hover{color:#fff;text-decoration:underline}
 </section>
 
 <!-- =============== OUR TREES =============== -->
-<section id="trees">
+<section id="trees" class="has-chapter">
+  <header class="chapter chapter-trees chapter-mist">
+    <div class="container">
+      <span class="tag">What We Grow</span>
+      <h2 class="sec-title">Find your perfect fir or spruce.</h2>
+    </div>
+  </header>
   <div class="container">
-    <span class="tag">What We Grow</span>
-    <h2 class="sec-title">Find your perfect fir or spruce.</h2>
     <div class="tree-grid">
-      <article class="tcard reveal">
+      <article class="tcard reveal reveal-left">
         <h3>Fraser Fir</h3>
         <span class="years">Grown with care for 7–10 years</span>
         <p>The Cadillac of Christmas trees. Loved for its rich green needles with a silvery shimmer and soft, full branches that are a dream to decorate, even with your heaviest ornaments. Fills your home with a gentle, classic Christmas fragrance and keeps its needles beautifully all season long.</p>
       </article>
-      <article class="tcard reveal">
+      <article class="tcard reveal reveal-right">
         <h3>Balsam Fir</h3>
         <span class="years">9–10 years of careful growing</span>
         <p>A timeless favorite. Shines with dark green needles and a silvery underside that sparkles in the light. Its soft, flat needles and graceful branches are perfect for lighter ornaments, filling your home with that classic Christmas fragrance everyone loves. Excellent needle retention.</p>
       </article>
-      <article class="tcard reveal">
+      <article class="tcard reveal reveal-left">
         <h3>Concolor Fir</h3>
         <span class="years">Grown with care for 4–8 years</span>
         <p>A fresh citrus twist. With sturdy branches and an elegant, natural shape, the Concolor is both beautiful and dependable, perfect for showcasing your favorite ornaments. Its soft needles release a delightful citrus-like fragrance, and it stays lovely all through Christmas.</p>
       </article>
-      <article class="tcard reveal">
+      <article class="tcard reveal reveal-right">
         <h3>Spruce (White &amp; Blue)</h3>
         <span class="years">Grown 4–8 years to 7–8 ft</span>
         <p>A show-stopping display. A striking choice, with short needles ranging from deep green to a beautiful silver-blue. Sturdy branches hold heavier ornaments with ease. A healthy spruce can last up to six weeks when properly cared for.</p>
@@ -352,11 +398,15 @@ footer a:hover{color:#fff;text-decoration:underline}
 </section>
 
 <!-- =============== HOW IT WORKS =============== -->
-<section id="how">
+<section id="how" class="has-chapter">
+  <header class="chapter chapter-how">
+    <div class="container">
+      <span class="tag">Your Farm Visit Experience</span>
+      <h2 class="sec-title">How a visit goes.</h2>
+    </div>
+  </header>
   <div class="container">
-    <span class="tag">Your Farm Visit Experience</span>
-    <h2 class="sec-title">How a visit goes.</h2>
-    <p class="sec-intro">No appointment, no rush. Come when the light's good, grab a saw, cut down your favorite and leave with a tree and a story.</p>
+    <p class="sec-intro" style="margin-bottom:0">No appointment, no rush. Come when the light's good, grab a saw, cut down your favorite and leave with a tree and a story.</p>
   </div>
 </section>
 
@@ -372,10 +422,14 @@ footer a:hover{color:#fff;text-decoration:underline}
 </div>
 
 <!-- =============== WHAT WE GROW =============== -->
-<section id="grow">
+<section id="grow" class="has-chapter">
+  <header class="chapter chapter-grow">
+    <div class="container">
+      <span class="tag">Want more?</span>
+      <h2 class="sec-title">More than a tree to take home.</h2>
+    </div>
+  </header>
   <div class="container">
-    <span class="tag">Want more?</span>
-    <h2 class="sec-title">More than a tree to take home.</h2>
     <p class="sec-intro">Every tree is grown on our farm, each wreath crafted by hand, maple syrup made right here on the property, local honey from a friendly neighbor, and our shop features handmade crafts and Hoppy's merch curated for your visit.</p>
     <div class="card-grid">
       <article class="pcard reveal">
@@ -385,14 +439,14 @@ footer a:hover{color:#fff;text-decoration:underline}
           <p>Walk the rows, pick your favorite, and cut it down yourself. Firs and spruce in every size.</p>
         </div>
       </article>
-      <article class="pcard reveal">
+      <article class="pcard reveal d1">
         <img src="images/wreath-bow.jpg" alt="Fresh evergreen wreath decorated with a red-and-white striped bow and natural pinecones, hanging at the farm stand" loading="lazy" width="640" height="800">
         <div class="pcard-body">
           <h3>Handmade wreaths</h3>
           <p>Handmade wreaths, freshcut and made with care. Each one crafted by hand with the kind of attention only a small farm can give.</p>
         </div>
       </article>
-      <article class="pcard reveal">
+      <article class="pcard reveal d2">
         <img src="images/syrup-bottles.jpg" alt="Maple-leaf-shaped glass bottles of Hoppy's Family Farm pure maple syrup on the shop shelf, one small bottle wearing a tiny Santa hat" loading="lazy" width="680" height="850">
         <div class="pcard-body">
           <h3>Honey, syrup &amp; more</h3>
@@ -410,16 +464,16 @@ footer a:hover{color:#fff;text-decoration:underline}
     <h2 class="sec-title">Enjoying the farm safely.</h2>
     <div class="know-grid">
       <div>
-        <article class="note reveal">
+        <article class="note reveal reveal-left">
           <h3>While you wander</h3>
           <p>Please be mindful of the ropes in the fields; they help keep everyone safe and merry. The cozy house between the fields is a private residence, so we kindly ask that you use the street or the back path when moving from field to field. If you're on the street, please travel with care, as it's a public road, and we want all our guests to have a joyful, safe visit.</p>
         </article>
-        <article class="note reveal">
+        <article class="note reveal reveal-left d1">
           <h3>Meet the sheep</h3>
           <p>Our wonderful neighbors, the Zichichi family, have shared something special — their friendly sheep have come to visit! Guests are welcome to say hello and feed them (feed bags are available for purchase at the table by the fenced area). For everyone's safety (and the sheep's), please enjoy them from outside the fence, and please do not touch the fence, as it is electrified for the animals' protection.</p>
         </article>
       </div>
-      <aside class="fresh-card reveal">
+      <aside class="fresh-card reveal reveal-right">
         <h3>Keeping your tree fresh</h3>
         <p class="sub">Real trees. Real memories. A little care goes a long way.</p>
         <ol>
@@ -473,7 +527,7 @@ footer a:hover{color:#fff;text-decoration:underline}
           </div>
         </div>
       </div>
-      <aside class="dir-card reveal">
+      <aside class="dir-card reveal reveal-right">
         <span class="pin" aria-hidden="true">❄</span>
         <h3>Ready when you are.</h3>
         <p>Point the sleigh (or the minivan) toward<br><span class="addr">108 Ryder Rd, North Stonington, CT 06359</span></p>
@@ -586,6 +640,31 @@ footer a:hover{color:#fff;text-decoration:underline}
       toggle.setAttribute("aria-expanded", "false");
     }
   });
+
+  /* ---------- countdown to opening day ---------- */
+  var countdown = document.getElementById("countdown");
+  var opening = new Date(2026, 10, 27); // November 27, 2026
+  var daysLeft = Math.ceil((opening - Date.now()) / 86400000);
+  if (daysLeft > 0 && daysLeft < 365) {
+    countdown.hidden = false;
+    countdown.textContent = "🎄 " + daysLeft + (daysLeft === 1 ? " day" : " days") + " until opening day";
+  }
+
+  /* ---------- highlight the section you're reading in the nav ---------- */
+  var navAnchors = document.querySelectorAll(".nav-links a[href^='#']");
+  var spySections = ["farm", "trees", "how", "grow", "visit", "contact"]
+    .map(function(id){ return document.getElementById(id); });
+  if ("IntersectionObserver" in window) {
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        navAnchors.forEach(function(a){
+          a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id && !a.classList.contains("btn"));
+        });
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    spySections.forEach(function(s){ spy.observe(s); });
+  }
 
   /* ---------- reveal on scroll ---------- */
   var revealEls = document.querySelectorAll(".reveal");
